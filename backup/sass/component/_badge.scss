@@ -1,0 +1,13 @@
+@import '../common/variables';
+@import '../common/mixins';
+
+.badge {
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: $green2;
+  color: $white;
+  border-radius: 0;
+  font-family: $primary_semibold;
+  font-size: 15px;
+  text-transform: uppercase;
+}

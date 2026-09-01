@@ -1,0 +1,203 @@
+@import './variables';
+@import './mixins';
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  font-family: $primary_regular;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $bodyColor;
+  text-decoration: none;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+  text-decoration: none;
+}
+
+// ========================================
+// Headings
+// ========================================
+
+.h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+  font-weight: $h1-font-weight;
+  font-family: $primary_semibold;
+  margin-bottom: 0;
+  color: $primary;
+}
+
+// other pages h1
+.page-title {
+  font-size: $page-h1-font-size;
+  line-height: $page-h1-line-height;
+  font-weight: $page-h1-font-weight;
+}
+
+.h2 {
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+  font-weight: $h2-font-weight;
+  color: $primary;
+}
+.h2-big {
+  font-size: $h2-big-font-size;
+  line-height: $h2-line-height;
+  font-weight: $h2-font-weight;
+  color: $primary;
+}
+
+.h3 {
+  font-size: $h3-font-size;
+  line-height: $h3-line-height;
+  font-weight: $h3-font-weight;
+  color: $primary;
+}
+
+.h4 {
+  font-size: $h4-font-size;
+  line-height: $h4-line-height;
+  font-weight: $h4-font-weight;
+  color: $primary;
+}
+
+.h5 {
+  font-size: $h5-font-size;
+  line-height: $h5-line-height;
+  font-weight: $h5-font-weight;
+  color: $primary;
+}
+
+.h6 {
+  font-size: $h6-font-size;
+  line-height: $h6-line-height;
+  font-weight: $h6-font-weight;
+  color: $primary;
+}
+
+input,
+button {
+  font-weight: 500;
+}
+
+.p {
+  font-size: $body-font-size;
+  line-height: $body-line-height;
+  font-weight: $body-font-weight;
+}
+
+a {
+  line-height: 1.8em;
+  font-size: 18px;
+  color: $primary;
+  font-weight: 300;
+  text-decoration: none;
+  @include transition;
+
+  &:hover {
+    color: $primary;
+    text-decoration: none;
+  }
+}
+
+ul {
+  padding-left: 15px;
+  li {
+    margin: 0 0 10px;
+    line-height: 160%;
+    font-size: 16px;
+    color: $bodyColor;
+    font-family: $primary_regular;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+
+  @include devices(mobile) {
+    width: 3px;
+    height: 3px;
+  }
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba($black, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $black;
+}
+
+figure {
+  margin: 0;
+}
+
+
+
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl {
+  @include media-breakpoint-between(sm, xl) {
+    max-width: 100%;
+  }
+  @include media-breakpoint-down(md) {
+    --bs-gutter-x: 2rem;
+  }
+}
+
+.row > * {
+  @include media-breakpoint-down(md) {
+    --bs-gutter-x: 2rem;
+  }
+}
+
+body {
+  .wpcf7 {
+    form {
+      .wpcf7-response-output {
+        color: $white;
+        border-radius: 12px;
+        padding: 16px !important;
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: 999;
+        box-shadow: 0 0 20px 5px rgba($black, 0.15) !important;
+        background: $white;
+        font-size: 1.125rem;
+        margin: 0;
+        @include media-breakpoint-down(md) {
+          right: 20px;
+          left: 20px;
+        }
+      }
+
+      &.sent {
+        .wpcf7-response-output {
+          background: $info;
+          border-color: $info;
+        }
+      }
+
+      &.invalid,
+      &.unaccepted,
+      &.payment-required {
+        .wpcf7-response-output {
+          background: $warning;
+        }
+      }
+    }
+  }
+}
+

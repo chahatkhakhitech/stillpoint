@@ -1,0 +1,296 @@
+@import '../common/variables';
+@import '../common/mixins';
+
+.overview__section {
+  border-top: 1px solid rgba($primary, 0.2);
+  .overview__image {
+    @include fullSize;
+    @include media-breakpoint-only(md) {
+      max-height: 500px;
+    }
+    img {
+      @include imageCover;
+      @include media-breakpoint-only(md) {
+        max-height: 100%;
+      }
+    }
+  }
+
+  .overview__list {
+    border-top: 1px solid rgba($success, 0.3);
+    border-bottom: 1px solid rgba($success, 0.3);
+    padding: 24px 0px 8px 0;
+    margin: 26px 0px 50px 0px;
+    @include media-breakpoint-down(lg) {
+      margin: 26px 0px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      li {
+        margin-bottom: 16px;
+        position: relative;
+        padding-left: 30px;
+        &::before {
+          content: '';
+          background: url(../images/chechmark-icon.svg) no-repeat center;
+          width: 20px;
+          height: 20px;
+          display: block;
+          @include absoluteTopLeft;
+        }
+      }
+    }
+  }
+  a {
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 26px;
+    }
+  }
+  .overview__cnt_img {
+    padding-top: 12px;
+    width: 100%;
+    height: 100%;
+    @include media-breakpoint-down(sm) {
+      padding-top: 26px;
+    }
+    @include media-breakpoint-down(lg) {
+      height: 256px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      @include media-breakpoint-down(lg) {
+        max-height: 100%;
+      }
+    }
+  }
+}
+.offering__section {
+  background: url(../images/solution-bg.webp) no-repeat center center;
+  background-size: cover;
+}
+.offering__grid {
+  .row {
+    row-gap: 12px;
+
+    .offering__card {
+      position: relative;
+      &__media {
+        @include fullSize;
+        position: relative;
+        padding-top: 77%;
+        overflow: hidden;
+        @include media-breakpoint-down(lg) {
+          padding-top: 100%;
+        }
+
+        img {
+          @include imageCover;
+          @include absoluteTopLeft;
+          @include transition;
+
+          &:hover {
+            transform: scale(1.1);
+            @include transition;
+          }
+        }
+      }
+      &__wapaar {
+        position: absolute;
+        bottom: 0;
+        padding: 20px;
+        width: 100%;
+        @include media-breakpoint-down(lg) {
+          padding: 10px;
+        }
+      }
+      &__caption {
+        position: relative;
+        width: 100%;
+        padding: 30px 26px;
+        background: rgba($black, 0.2);
+        border: 1px solid $white;
+        backdrop-filter: blur(7.5px);
+        clip-path: polygon(
+          0 0,
+          16px 0,
+          calc(100% - 33px) 0,
+          100% 33px,
+          100% 100%,
+          0 100%
+        );
+        @include media-breakpoint-down(lg) {
+          padding: 20px 10px;
+          clip-path: polygon(
+            0 0,
+            17px 0,
+            calc(100% - 25px) 0,
+            100% 25px,
+            100% 100%,
+            0 100%
+          );
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: -1px;
+          right: -1px;
+          width: 35px;
+          height: 35px;
+          background: $white;
+          clip-path: polygon(100% 0, 100% 100%, 0 0);
+          @include media-breakpoint-down(lg) {
+            clip-path: polygon(100% 0, 100% 73%, 0% -20%);
+          }
+        }
+        .offering__card__title {
+          @include flexCenterBetween;
+          gap: 16px;
+          @include media-breakpoint-down(lg) {
+            gap: 8px;
+          }
+          .h4 {
+            color: $white;
+            margin-bottom: 0;
+            font-family: $primary-semibold;
+          }
+          span {
+            margin-bottom: 0;
+            font-size: 16px;
+            color: $white;
+            @include media-breakpoint-down(lg) {
+              font-size: 14px;
+            }
+          }
+          .link__btn {
+            @include media-breakpoint-down(lg) {
+              font-size: 14px;
+            }
+          }
+
+          > div:has(.link__btn) {
+            flex-shrink: 0;
+          }
+        }
+        .offering__card__desc {
+          color: $white;
+          font-size: 14px;
+          margin-top: 12px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.contact__section {
+  background:
+    linear-gradient(rgba($primary, 0.5), rgba($primary, 0.5)),
+    url(../images/contact-banner.jpg) no-repeat center;
+  background-size: cover;
+  padding-bottom: 0;
+  margin-bottom: 72px;
+  @include media-breakpoint-down(md) {
+    padding-bottom: 44px;
+    margin-bottom: 0;
+  }
+  .contact__form {
+    padding: 68px 48px 70px 48px;
+    background: rgba(174, 174, 174, 0.05);
+    border: 1px solid #aeaeae;
+    position: relative;
+    @include media-breakpoint-down(lg) {
+      padding: 35px;
+    }
+    @include media-breakpoint-down(md) {
+      padding: 18px;
+    }
+    select {
+      background: url(../images/form-arrow-white.svg) no-repeat;
+      background-position: right 10px center;
+      border-radius: 0;
+      color: #fff;
+      padding: 14px;
+      font-size: 16px !important;
+      border: 1px solid #fff !important;
+      option {
+        color: $black !important;
+        background-color: $white !important;
+      }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(7.5px);
+      -webkit-backdrop-filter: blur(7.5px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    h2 {
+      color: $white;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 99;
+      @include media-breakpoint-down(lg) {
+        margin-bottom: 35px;
+      }
+      @include media-breakpoint-down(md) {
+        margin-bottom: 18px;
+      }
+    }
+    .form-control {
+      padding: 14px;
+      font-size: 16px !important;
+      border: 1px solid #fff !important;
+      background: rgba(0, 0, 0, 0);
+      border-radius: 0;
+      color: $white;
+    }
+    input,
+    textarea {
+      &::placeholder {
+        color: $white;
+        opacity: 1;
+      }
+    }
+    .button-row {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      padding: 0;
+      margin: 0;
+      @include media-breakpoint-down(md) {
+        position: relative;
+      }
+      p {
+        margin-bottom: 0;
+      }
+      .btn-success {
+        border-radius: 0;
+        padding: 20px 40px 20px 20px;
+        font-size: 20px;
+        font-family: $primary-semibold;
+        background-image: url(../images/contact-form-btn.svg);
+        background-repeat: no-repeat;
+        background-position: calc(50% + 90px) center;
+        background-size: 18px;
+        @include media-breakpoint-down(md) {
+          line-height: 30px;
+        }
+        &:hover {
+          color: $white !important;
+        }
+      }
+      .wpcf7-spinner {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+}

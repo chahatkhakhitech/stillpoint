@@ -1,0 +1,229 @@
+@mixin devices($breakpoint) {
+  //the name of the mixin is devices
+
+  @if $breakpoint == scaledRatio {
+    @media (-webkit-device-pixel-ratio: 1.25) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktopLarge {
+    @media only screen and (min-width: 1600px) and (max-width: 5000px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktopMedium {
+    @media only screen and (min-width: 1400px) and (max-width: 1639px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mediumScreen {
+    @media only screen and (min-width: 1024px) and (max-width: 1599.98px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktopMidLarge {
+    @media only screen and (min-width: 1600px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == laptopDesktop {
+    @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == laptopOnly {
+    @media only screen and (min-width: 1200px) and (max-width: 1399px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktopOnly {
+    @media only screen and (min-width: 1300px) and (max-width: 1399px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobileLaptop {
+    @media only screen and (min-width: 320px) and (max-width: 1270px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == laptop {
+    @media only screen and (min-width: 1170px) and (max-width: 1299px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet-landscape {
+    @media only screen and (min-width: 1024px) and (max-width: 1169px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == ipad-all {
+    @media only screen and (min-width: 768px) and (max-width: 1169px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile-tablet {
+    @media only screen and (min-width: 320px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile-ipadmini {
+    @media only screen and (min-width: 320px) and (max-width: 992px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile-landscape {
+    @media only screen and (min-width: 575px) and (max-width: 767px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile-portrait {
+    @media only screen and (max-width: 574.98px) {
+      @content;
+    }
+  }
+  @if $breakpoint == bootstrap-lg {
+    @media only screen and (min-width: 992px) {
+      @content;
+    }
+  }
+}
+
+// GRID
+@mixin grid($columns, $gap) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  grid-gap: $gap;
+}
+
+// TRANSITION
+@mixin transition() {
+  transition: all 0.3s ease;
+}
+
+// BORDER
+@mixin borderRadius() {
+  border-radius: 10px;
+}
+
+// BOX SHADOW
+@mixin boxShadow {
+  box-shadow: 0 0 10px 7px rgba($black, 0.03);
+}
+
+@mixin innerBoxShadow {
+  box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+// IMAGE THUMBNAIL
+@mixin imageCover {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin fullSize {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin relativeHidden {
+  position: relative;
+  overflow: hidden;
+}
+
+@mixin absoluteCenter {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+@mixin absoluteCenterVertical {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+
+@mixin absoluteCenterHor {
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+}
+
+@mixin absoluteTopLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+// FLEX
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexCenterBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexAlignCenter {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexAlignEnd {
+  display: flex;
+  align-items: end;
+}
+
+@mixin flexAlignStart {
+  display: flex;
+  align-items: start;
+}
+
+@mixin flexCenterEnd {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+@mixin flexStartCenter {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+@mixin flexJustifyCenter {
+  display: flex;
+  justify-content: center;
+}

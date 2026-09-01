@@ -1,0 +1,31 @@
+@import '../common/variables';
+@import '../common/mixins';
+
+.breadcrumb {
+  .breadcrumbs-text {
+    padding: 6px 16px;
+    background: rgba($white, 0.7);
+    backdrop-filter: blur(25px);
+    border-radius: 12px;
+    @include flexCenter;
+    gap: 8px;
+    flex-wrap: wrap;
+    @include media-breakpoint-down(md) {
+      margin-top: 12px;
+    }
+    @include media-breakpoint-down(sm) {
+      margin: 12px 12px 0px 12px;
+    }
+    a,
+    span {
+      line-height: 26px;
+      color: $primary;
+      font-size: 16px;
+    }
+    a {
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+}
