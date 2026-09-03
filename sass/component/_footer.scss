@@ -1,2 +1,71 @@
 @import '../common/variables';
 @import '../common/mixins';
+
+.footer {
+  background: $primary;
+  .ftr__img {
+    margin-bottom: 14px;
+  }
+  .ftr__desc {
+    p {
+      margin-bottom: 0;
+      color: $white;
+    }
+  }
+  .ftr__links__col {
+    ul {
+      padding: 0;
+      margin-bottom: 0;
+      li {
+        list-style: none;
+        a,
+        p {
+          text-decoration: none;
+          font-size: 14px;
+          color: rgba($color: $white, $alpha: 0.6);
+          font-family: $secondary_regular;
+          line-height: 38px;
+          @include transition;
+        }
+        &:hover {
+          a {
+            color: $white;
+          }
+        }
+      }
+    }
+    .ftr__dtl {
+      margin-bottom: 32px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      h6 {
+        margin-bottom: 14px;
+      }
+      p {
+        text-decoration: none;
+        font-size: 14px;
+        color: rgba($color: $white, $alpha: 0.6);
+        font-family: $secondary_regular;
+        line-height: 26px;
+        margin-bottom: 0;
+        @include transition;
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+  .ftr__ttl {
+    margin-bottom: 24px;
+    font-weight: $font-weight-medium;
+    font-size: 11px;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 12px;
+    }
+  }
+}

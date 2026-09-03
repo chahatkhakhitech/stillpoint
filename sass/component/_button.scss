@@ -4,11 +4,13 @@
 $btn-padding-y: 0;
 $btn-padding-end: 16px;
 $btn-font-size: 16px;
-$btn-line-height: 46px;
+$btn-line-height: 42px;
 $btn-font-weight: 400;
 $btn-border-radius: 50px;
 $btn-min-width: 180px;
-
+@include media-breakpoint-down(md) {
+  $btn-min-width: 140px !global;
+}
 @mixin button-variant(
   $background,
   $border,
@@ -17,9 +19,9 @@ $btn-min-width: 180px;
   $btn-font-weight: 400,
   $btn-border-radius: 50px,
   $btn-padding-y: 0,
-  $btn-padding-end: 16px,
+  $btn-padding-end: 0px,
   $btn-font-size: 16px,
-  $btn-line-height: 46px,
+  $btn-line-height: 42px,
   $hover-background,
   $hover-border: null,
   $hover-text-color: null,
@@ -32,9 +34,9 @@ $btn-min-width: 180px;
   color: if($outline, $color, $color);
   min-width: $btn-min-width;
   font-weight: $btn-font-weight;
-  font-family: $primary_regular;
+  font-family: $secondary_regular;
   border-radius: $btn-border-radius;
-  padding: $btn-padding-y $btn-padding-end $btn-padding-y 48px;
+  padding: 0px 20px;
   font-size: $btn-font-size;
   line-height: $btn-line-height;
   display: inline-flex;
@@ -43,8 +45,7 @@ $btn-min-width: 180px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  text-transform: uppercase;
-  gap: 20px;
+  gap: 12px;
   position: relative;
 
   .btn-icon {
@@ -162,17 +163,17 @@ $btn-min-width: 180px;
       @include button-variant(
         $white,
         $value,
-        $bodyColor,
+        #0d0e0e,
         $btn-min-width,
-        $btn-font-weight,
+        $font-weight-medium,
         $btn-border-radius,
         $btn-padding-y,
         $btn-padding-end,
         $btn-font-size,
         $btn-line-height,
-        45px,
-        lighten($primary, 10%),
-        $primary,
+        $white,
+        #0d0e0e,
+        $black,
         $bodyColor,
         darken($primary, 10%),
         null
@@ -202,13 +203,13 @@ $btn-min-width: 180px;
         $white,
         rgba($bodyColor, 0.15),
         rgba($bodyColor, 1),
-        132px,
-        400,
-        0,
-        0,
-        1.875rem,
-        1.438rem,
-        45px,
+        $btn-min-width,
+        $btn-font-weight,
+        $btn-border-radius,
+        $btn-padding-y,
+        $btn-padding-end,
+        $btn-font-size,
+        $btn-line-height,
         $white,
         $white,
         $white,
@@ -240,15 +241,15 @@ $btn-min-width: 180px;
   .btn-outline-#{$color} {
     @include button-variant(
       $white,
-      $grey1,
+      $dark2,
       $bodyColor,
-      132px,
-      400,
-      8px,
-      0,
-      16px,
-      12px,
-      50px,
+      $btn-min-width,
+      $btn-font-weight,
+      $btn-border-radius,
+      $btn-padding-y,
+      $btn-padding-end,
+      $btn-font-size,
+      $btn-line-height,
       $bodyColor,
       $bodyColor,
       $white,
@@ -298,10 +299,6 @@ $btn-min-width: 180px;
   &__wt {
     color: $white;
 
-    &::after {
-      background: $white;
-    }
-
     svg path {
       fill: $white;
     }
@@ -312,6 +309,6 @@ $btn-min-width: 180px;
 
   &__bold {
     font-size: 15px;
-    font-family: $primary_semibold;
+    // font-family: $primary_semibold;
   }
 }

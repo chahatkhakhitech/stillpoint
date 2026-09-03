@@ -7,13 +7,13 @@ html {
 }
 
 body {
-  font-family: $primary_regular;
+  font-family: $secondary_regular;
   font-size: 16px;
   line-height: 1.5;
   color: $bodyColor;
   text-decoration: none;
   overflow-x: hidden;
-  background-color: #f7f7f7;
+  // background-color: #f7f7f7;
   text-decoration: none;
 }
 
@@ -25,7 +25,7 @@ body {
   font-size: $h1-font-size;
   line-height: $h1-line-height;
   font-weight: $h1-font-weight;
-  font-family: $primary_semibold;
+  font-family: $primary_regular;
   margin-bottom: 0;
   color: $primary;
 }
@@ -41,41 +41,35 @@ body {
   font-size: $h2-font-size;
   line-height: $h2-line-height;
   font-weight: $h2-font-weight;
-  color: $primary;
 }
 .h2-big {
   font-size: $h2-big-font-size;
   line-height: $h2-line-height;
   font-weight: $h2-font-weight;
-  color: $primary;
 }
 
 .h3 {
-  font-size: $h3-font-size;
+  font-size: $h3-font-size !important;
   line-height: $h3-line-height;
   font-weight: $h3-font-weight;
-  color: $primary;
 }
 
 .h4 {
   font-size: $h4-font-size;
   line-height: $h4-line-height;
   font-weight: $h4-font-weight;
-  color: $primary;
 }
 
 .h5 {
   font-size: $h5-font-size;
   line-height: $h5-line-height;
   font-weight: $h5-font-weight;
-  color: $primary;
 }
 
 .h6 {
   font-size: $h6-font-size;
   line-height: $h6-line-height;
   font-weight: $h6-font-weight;
-  color: $primary;
 }
 
 input,
@@ -90,7 +84,7 @@ button {
 }
 
 a {
-  line-height: 1.8em;
+  // line-height: 1.8em;
   font-size: 18px;
   color: $primary;
   font-weight: 300;
@@ -104,9 +98,9 @@ a {
 }
 
 ul {
-  padding-left: 15px;
+  padding-left: 0px;
   li {
-    margin: 0 0 10px;
+    // margin: 0 0 10px;
     line-height: 160%;
     font-size: 16px;
     color: $bodyColor;
@@ -141,26 +135,46 @@ ul {
 figure {
   margin: 0;
 }
-
-
-
-.container,
-.container-fluid,
-.container-xxl,
-.container-xl {
-  @include media-breakpoint-between(sm, xl) {
-    max-width: 100%;
-  }
-  @include media-breakpoint-down(md) {
-    --bs-gutter-x: 2rem;
-  }
+.row {
+  row-gap: 24px;
 }
+.section {
+  padding: 100px 0;
 
-.row > * {
-  @include media-breakpoint-down(md) {
-    --bs-gutter-x: 2rem;
+  @media screen and (max-width: 767px) {
+    padding: 40px 0;
   }
+
+  @media screen and (max-width: 768px) and (max-width: 1023px) {
+    padding: 64px 0;
+  }
+
+  &-plain + &-plain {
+    padding-top: 0;
+  }
+
+  // &-plain + &-alt,
+  // &-alt + &-plain {
+  //   padding-top: 0;
+  // }
 }
+// .container,
+// .container-fluid,
+// .container-xxl,
+// .container-xl {
+//   @include media-breakpoint-between(sm, xl) {
+//     max-width: 100%;
+//   }
+//   @include media-breakpoint-down(md) {
+//     --bs-gutter-x: 2rem;
+//   }
+// }
+
+// .row > * {
+//   @include media-breakpoint-down(md) {
+//     --bs-gutter-x: 2rem;
+//   }
+// }
 
 body {
   .wpcf7 {
@@ -177,10 +191,10 @@ body {
         background: $white;
         font-size: 1.125rem;
         margin: 0;
-        @include media-breakpoint-down(md) {
-          right: 20px;
-          left: 20px;
-        }
+        // @include media-breakpoint-down(md) {
+        //   right: 20px;
+        //   left: 20px;
+        // }
       }
 
       &.sent {
@@ -201,3 +215,44 @@ body {
   }
 }
 
+// model
+#reviewVideoModal .modal-dialog {
+  max-width: 350px;
+  width: 350px;
+  margin: auto;
+}
+
+#reviewVideoModal .modal-content {
+  height: 450px;
+}
+
+#reviewVideoModal .modal-body {
+  padding: 0;
+  height: 100%;
+}
+
+#reviewVideoModal video {
+  object-fit: contain;
+  display: block;
+}
+
+.close__btn__model {
+  position: absolute;
+  right: -10px;
+  top: -2%;
+  background: $black;
+  border-radius: 50%;
+  padding: 10px;
+  opacity: 1;
+  color: $black;
+  width: 30px;
+  height: 30px;
+  @include flexCenter;
+  cursor: pointer;
+
+  button {
+    filter: invert(1);
+    opacity: 1;
+    cursor: pointer;
+  }
+}
