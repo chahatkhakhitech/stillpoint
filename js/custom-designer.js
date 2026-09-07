@@ -223,55 +223,46 @@ jQuery(document).ready(function ($) {
 
   const reviewItems = document.querySelectorAll('.review__item');
   const viewMoreBtn = document.getElementById('reviewViewMore');
-
   const itemsPerLoad = 3;
-  let visibleReviews = 0;
+  let visibleReviews = itemsPerLoad;
 
-  // Initially only first 3 show
+  // Initially first 3 show, remaining hide
   reviewItems.forEach((item, index) => {
     if (index >= itemsPerLoad) {
       item.classList.add('d-none');
     }
   });
 
-  visibleReviews = itemsPerLoad;
-
-  // View More
   viewMoreBtn.addEventListener('click', () => {
-    const nextReviews = Array.from(reviewItems).slice(
-      visibleReviews,
-      visibleReviews + itemsPerLoad,
-    );
+    const isAllShown = visibleReviews >= reviewItems.length;
 
-    nextReviews.forEach((item) => {
-      item.classList.remove('d-none');
-    });
+    if (!isAllShown) {
+      // VIEW MORE
+      const nextReviews = Array.from(reviewItems).slice(
+        visibleReviews,
+        visibleReviews + itemsPerLoad,
+      );
 
-    visibleReviews += itemsPerLoad;
+      nextReviews.forEach((item) => {
+        item.classList.remove('d-none');
+      });
 
-    // All reviews displayed
-    if (visibleReviews >= reviewItems.length) {
-      viewMoreBtn.classList.add('d-none');
+      visibleReviews += itemsPerLoad;
+
+      // All cards are shown
+      if (visibleReviews >= reviewItems.length) {
+        viewMoreBtn.textContent = 'View Less';
+      }
+    } else {
+      // VIEW LESS
+      reviewItems.forEach((item, index) => {
+        if (index >= itemsPerLoad) {
+          item.classList.add('d-none');
+        }
+      });
+
+      visibleReviews = itemsPerLoad;
+      viewMoreBtn.textContent = 'View More';
     }
-  });
-
-  const reviewVideoModal = document.getElementById('reviewVideoModal');
-  const reviewVideo = document.getElementById('reviewVideo');
-
-  document.querySelectorAll('.review__card').forEach((card) => {
-    card.addEventListener('click', function () {
-      const videoPath = this.getAttribute('data-video');
-
-      reviewVideo.src = videoPath;
-      reviewVideo.load();
-      reviewVideo.play();
-    });
-  });
-
-  reviewVideoModal.addEventListener('hidden.bs.modal', function () {
-    reviewVideo.pause();
-    reviewVideo.currentTime = 0;
-    reviewVideo.removeAttribute('src');
-    reviewVideo.load();
   });
 });
