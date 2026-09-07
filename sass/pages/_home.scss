@@ -1,6 +1,49 @@
 @import '../common/variables';
 @import '../common/mixins';
 
+.book__sesn__btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 35px 10px 15px;
+  gap: 10px;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  background: $white;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 100px;
+  z-index: 999;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  font-size: 9px;
+  cursor: pointer;
+  i {
+    width: 12px;
+    height: 12px;
+    svg {
+    }
+  }
+  .sesn__count {
+    font-size: 9px;
+    background: $bodyColor;
+    border-radius: 16px;
+    color: $white;
+    padding: 10px;
+    font-weight: $font-weight-semibold;
+    text-transform: capitalize;
+    &::after {
+      content: '';
+      background-image: url(../images/book-session-btn-arrow.svg);
+      width: 10px;
+      height: 5px;
+      position: absolute;
+      top: 50%;
+      right: 15px;
+    }
+  }
+}
+
 .Marquee__sec {
   padding: 80px 0;
   overflow: hidden;
@@ -391,10 +434,23 @@
         position: relative;
         padding-top: 125%;
         overflow: hidden;
+        border-radius: 16px;
+
         img {
           @include imageCover;
           @include absoluteTopLeft;
           @include transition;
+        }
+        &::after {
+          content: '';
+          @include absoluteTopLeft;
+          @include fullSize;
+          background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.525) 0%,
+            rgba(0, 0, 0, 0) 100%
+          );
+          z-index: 1;
         }
       }
       .review__play__btn {
@@ -572,15 +628,15 @@
 .return-within {
   background: #f2f3f5;
   position: relative;
-  padding-bottom: 0;
   &__inner {
     margin: 0 auto;
     min-height: 100vh;
     gap: 40px;
     position: sticky;
-    top: 50px;
-    @include media-breakpoint-between(md, lg) {
-      top: 100px;
+    top: 0;
+    @include flexCenter;
+    .row {
+      width: 100%;
     }
   }
   &__heading {
@@ -618,7 +674,7 @@
   }
   &__image-wrap {
     width: 100%;
-    height: clamp(420px, 38vw, 580px);
+    height: 60vh;
     position: relative;
     overflow: hidden;
     border-radius: 22px;
@@ -662,7 +718,7 @@
     position: relative;
   }
   &__trigger {
-    height: 100vh;
+    height: 70vh;
   }
   @include media-breakpoint-down(lg) {
     &__heading {

@@ -158,23 +158,23 @@ figure {
   //   padding-top: 0;
   // }
 }
-// .container,
-// .container-fluid,
-// .container-xxl,
-// .container-xl {
-//   @include media-breakpoint-between(sm, xl) {
-//     max-width: 100%;
-//   }
-//   @include media-breakpoint-down(md) {
-//     --bs-gutter-x: 2rem;
-//   }
-// }
+.container,
+.container-fluid,
+.container-xxl,
+.container-xl {
+  @include media-breakpoint-between(sm, xl) {
+    max-width: 100%;
+  }
+  @include media-breakpoint-down(md) {
+    --bs-gutter-x: 2rem;
+  }
+}
 
-// .row > * {
-//   @include media-breakpoint-down(md) {
-//     --bs-gutter-x: 2rem;
-//   }
-// }
+.row > * {
+  @include media-breakpoint-down(md) {
+    --bs-gutter-x: 2rem;
+  }
+}
 
 body {
   .wpcf7 {
@@ -217,13 +217,19 @@ body {
 
 // model
 #reviewVideoModal .modal-dialog {
-  max-width: 350px;
-  width: 350px;
+  max-width: 255px;
+  width: auto;
   margin: auto;
+}
+.review__model {
+  background: #000000c7;
+  backdrop-filter: blur(5px);
 }
 
 #reviewVideoModal .modal-content {
   height: 450px;
+  background: transparent;
+  border: 0;
 }
 
 #reviewVideoModal .modal-body {
@@ -249,7 +255,7 @@ body {
   height: 30px;
   @include flexCenter;
   cursor: pointer;
-
+  z-index: 1;
   button {
     filter: invert(1);
     opacity: 1;

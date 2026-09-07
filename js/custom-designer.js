@@ -220,4 +220,58 @@ jQuery(document).ready(function ($) {
   });
   changeContent(0);
   updateScroll();
+
+  const reviewItems = document.querySelectorAll('.review__item');
+  const viewMoreBtn = document.getElementById('reviewViewMore');
+
+  const itemsPerLoad = 3;
+  let visibleReviews = 0;
+
+  // Initially only first 3 show
+  reviewItems.forEach((item, index) => {
+    if (index >= itemsPerLoad) {
+      item.classList.add('d-none');
+    }
+  });
+
+  visibleReviews = itemsPerLoad;
+
+  // View More
+  viewMoreBtn.addEventListener('click', () => {
+    const nextReviews = Array.from(reviewItems).slice(
+      visibleReviews,
+      visibleReviews + itemsPerLoad,
+    );
+
+    nextReviews.forEach((item) => {
+      item.classList.remove('d-none');
+    });
+
+    visibleReviews += itemsPerLoad;
+
+    // All reviews displayed
+    if (visibleReviews >= reviewItems.length) {
+      viewMoreBtn.classList.add('d-none');
+    }
+  });
+
+  const reviewVideoModal = document.getElementById('reviewVideoModal');
+  const reviewVideo = document.getElementById('reviewVideo');
+
+  document.querySelectorAll('.review__card').forEach((card) => {
+    card.addEventListener('click', function () {
+      const videoPath = this.getAttribute('data-video');
+
+      reviewVideo.src = videoPath;
+      reviewVideo.load();
+      reviewVideo.play();
+    });
+  });
+
+  reviewVideoModal.addEventListener('hidden.bs.modal', function () {
+    reviewVideo.pause();
+    reviewVideo.currentTime = 0;
+    reviewVideo.removeAttribute('src');
+    reviewVideo.load();
+  });
 });

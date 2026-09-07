@@ -27,12 +27,26 @@
                 </a>
               </div>
               <div class="">
-                <a class="btn btn-light" href="#">Explore More</a>
+                <a
+                  class="btn btn-light"
+                  href="https://stillpointindia.com"
+                  target="_blank"
+                  aria-label="visit official website stillpointindia.com"
+                  >Explore More</a
+                >
               </div>
             </div>
           </nav>
         </div>
       </header>
+
+      <!-- Book Session Button -->
+      <div class="book__sesn__btn">
+        <i><img src="./images/book-session-btn.svg" alt="" class="svg" /></i>
+        Book <br />
+        Session
+        <span class="sesn__count">4 left</span>
+      </div>
 
       <!-- middle -->
       <main id="middle" class="middle__sec">
@@ -61,7 +75,9 @@
                       consistent practice.
                     </p>
 
-                    <a class="btn btn-light" href="#">Explore Practices</a>
+                    <a class="btn btn-light" href="#our-practices"
+                      >Explore Practices</a
+                    >
                   </div>
                 </div>
               </div>
@@ -151,7 +167,10 @@
         </section>
 
         <!-- Our Practices -->
-        <section class="our__practices__sec section section-plain">
+        <section
+          class="our__practices__sec section section-plain"
+          id="our-practices"
+        >
           <div class="block__ttl">
             <div class="container">
               <div class="row">
@@ -610,12 +629,13 @@
           </div>
           <div class="review__card__wrapper">
             <div class="container">
-              <div class="row">
-                <div class="col-6 col-md-4">
+              <div class="row review__cards">
+                <div class="col-6 col-md-4 review__item">
                   <div
                     class="review__card"
                     data-bs-toggle="modal"
                     data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm1.mp4"
                   >
                     <div class="review__img">
                       <img
@@ -627,11 +647,13 @@
                     <div class="review__play__btn"></div>
                   </div>
                 </div>
-                <div class="col-6 col-md-4">
+
+                <div class="col-6 col-md-4 review__item">
                   <div
                     class="review__card"
                     data-bs-toggle="modal"
                     data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm2.mp4"
                   >
                     <div class="review__img">
                       <img
@@ -643,11 +665,13 @@
                     <div class="review__play__btn"></div>
                   </div>
                 </div>
-                <div class="col-6 col-md-4">
+
+                <div class="col-6 col-md-4 review__item">
                   <div
                     class="review__card"
                     data-bs-toggle="modal"
                     data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm3.mp4"
                   >
                     <div class="review__img">
                       <img
@@ -659,6 +683,107 @@
                     <div class="review__play__btn"></div>
                   </div>
                 </div>
+
+                <div class="col-6 col-md-4 review__item">
+                  <div
+                    class="review__card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm4.mp4"
+                  >
+                    <div class="review__img">
+                      <img
+                        src="./images/review-4.webp"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                    <div class="review__play__btn"></div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-4 review__item">
+                  <div
+                    class="review__card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm5.mp4"
+                  >
+                    <div class="review__img">
+                      <img
+                        src="./images/review-5.webp"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                    <div class="review__play__btn"></div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-4 review__item">
+                  <div
+                    class="review__card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm6.mp4"
+                  >
+                    <div class="review__img">
+                      <img
+                        src="./images/review-6.webp"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                    <div class="review__play__btn"></div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-4 review__item">
+                  <div
+                    class="review__card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm7.mp4"
+                  >
+                    <div class="review__img">
+                      <img
+                        src="./images/review-7.webp"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                    <div class="review__play__btn"></div>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-4 review__item">
+                  <div
+                    class="review__card"
+                    data-bs-toggle="modal"
+                    data-bs-target="#reviewVideoModal"
+                    data-video="./images/tm8.mp4"
+                  >
+                    <div class="review__img">
+                      <img
+                        src="./images/review-8.webp"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                    <div class="review__play__btn"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- View More -->
+              <div class="text-center review__view__more">
+                <button
+                  type="button"
+                  class="btn btn-outline-dark mt-4"
+                  id="reviewViewMore"
+                >
+                  View More
+                </button>
               </div>
             </div>
           </div>
@@ -683,11 +808,12 @@
 
                         <div class="testimonial__content">
                           <p class="h5">
-                            Stillpoint completely transformed how I experience
-                            my own body. The practices are gentle but deeply
-                            profound.
+                            Today's sound therapy session for me was excellent &
+                            I am very impressed with the therapy, which gave me
+                            very high energy. This is a very new concept for me
+                            but truly helped a needy person like me.
                           </p>
-                          <span class="testimonial__name">Rohan D.</span>
+                          <span class="testimonial__name">Sunil J.</span>
                         </div>
                       </div>
                     </div>
@@ -703,11 +829,35 @@
 
                         <div class="testimonial__content">
                           <p class="h5">
-                            Stillpoint completely transformed how I experience
-                            my own body. The practices are gentle but deeply
-                            profound.
+                            I had an out-of-body experience in my 1:1 sound
+                            healing session. I could feel all the vibrations and
+                            I felt so much lighter after.
                           </p>
-                          <span class="testimonial__name">Lara D.</span>
+                          <span class="testimonial__name"
+                            >Dr. Vaishnavi J.</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide text-center">
+                      <div class="testimonial__card">
+                        <div class="testimonial__avtar">
+                          <img
+                            src="./images/female-avtar.png"
+                            alt="testimonial avtar image"
+                            class="img-fluid"
+                          />
+                        </div>
+
+                        <div class="testimonial__content">
+                          <p class="h5">
+                            I came mostly because a friend insisted. I didn't
+                            expect much. What I noticed after a few sessions was
+                            that the 3 a.m. spiral happened less, and when it
+                            did I could actually stop it. That felt worth
+                            continuing.
+                          </p>
+                          <span class="testimonial__name">Priya K.</span>
                         </div>
                       </div>
                     </div>
@@ -723,11 +873,96 @@
 
                         <div class="testimonial__content">
                           <p class="h5">
-                            Stillpoint completely transformed how I experience
-                            my own body. The practices are gentle but deeply
-                            profound.
+                            Went in with low expectations, left mildly
+                            impressed. The session was an hour of actual quiet,
+                            which I apparently needed more than I realised. I
+                            booked the next one before I got to my car.
                           </p>
-                          <span class="testimonial__name">Rohan D.</span>
+                          <span class="testimonial__name">Arjun M.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide text-center">
+                      <div class="testimonial__card">
+                        <div class="testimonial__avtar">
+                          <img
+                            src="./images/female-avtar.png"
+                            alt="testimonial avtar image"
+                            class="img-fluid"
+                          />
+                        </div>
+
+                        <div class="testimonial__content">
+                          <p class="h5">
+                            Two years of therapy hadn't touched something the
+                            somatic work reached in a few sessions. I'm not sure
+                            I can explain it clearly, but the difference showed
+                            up at work before I could name it.
+                          </p>
+                          <span class="testimonial__name">Kavya T.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide text-center">
+                      <div class="testimonial__card">
+                        <div class="testimonial__avtar">
+                          <img
+                            src="./images/male-avtar.png"
+                            alt="testimonial avtar image"
+                            class="img-fluid"
+                          />
+                        </div>
+
+                        <div class="testimonial__content">
+                          <p class="h5">
+                            My wife booked it. I went because it was a free
+                            Sunday. It was slower than I expected — in a good
+                            way. I came back with a quieter head and I've been
+                            back since.
+                          </p>
+                          <span class="testimonial__name">Rohan P.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide text-center">
+                      <div class="testimonial__card">
+                        <div class="testimonial__avtar">
+                          <img
+                            src="./images/female-avtar.png"
+                            alt="testimonial avtar image"
+                            class="img-fluid"
+                          />
+                        </div>
+
+                        <div class="testimonial__content">
+                          <p class="h5">
+                            I'd tried a few things before this. The group
+                            session was the first one that didn't feel like I
+                            was being asked to perform wellness. Just showed up,
+                            did the work, felt better. Simple as that.
+                          </p>
+                          <span class="testimonial__name">Sneha V.</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="swiper-slide text-center">
+                      <div class="testimonial__card">
+                        <div class="testimonial__avtar">
+                          <img
+                            src="./images/male-avtar.png"
+                            alt="testimonial avtar image"
+                            class="img-fluid"
+                          />
+                        </div>
+
+                        <div class="testimonial__content">
+                          <p class="h5">
+                            I went because my partner booked it. I was
+                            skeptical. I'm still not someone who talks about
+                            this kind of thing much, but I've been back four
+                            times, so that probably says it.
+                          </p>
+                          <span class="testimonial__name">Kiran D.</span>
                         </div>
                       </div>
                     </div>
@@ -798,7 +1033,7 @@
         <section class="return-within section section-alt" id="returnWithin">
           <div class="container">
             <div class="return-within__inner">
-              <div class="row">
+              <div class="row align-items-center">
                 <div class="col-lg-6">
                   <div class="block__ttl">
                     <h2 class="return-within__heading">
@@ -1034,7 +1269,7 @@ consistent practice."
 
     <!-- Review Video Modal -->
     <div
-      class="modal fade"
+      class="modal fade review__model"
       id="reviewVideoModal"
       tabindex="-1"
       aria-hidden="true"
@@ -1046,18 +1281,21 @@ consistent practice."
             data-bs-dismiss="modal"
             aria-label="Close"
           >
-            <button type="button" class="btn-close"></button>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
           </div>
+
           <div class="modal-body p-0">
             <video
               id="reviewVideo"
               class="w-100 h-100 rounded-2"
               controls
               playsinline
-            >
-              <source src="./images/tm3.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            ></video>
           </div>
         </div>
       </div>
