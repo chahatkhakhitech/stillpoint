@@ -223,21 +223,25 @@ jQuery(document).ready(function ($) {
 
   const reviewItems = document.querySelectorAll('.review__item');
   const viewMoreBtn = document.getElementById('reviewViewMore');
+
   const itemsPerLoad = 3;
   let visibleReviews = itemsPerLoad;
 
-  // Initially first 3 show, remaining hide
+  // Initially first 3 show
   reviewItems.forEach((item, index) => {
     if (index >= itemsPerLoad) {
       item.classList.add('d-none');
     }
   });
 
+  // =========================
+  // VIEW MORE / VIEW LESS
+  // =========================
   viewMoreBtn.addEventListener('click', () => {
     const isAllShown = visibleReviews >= reviewItems.length;
 
     if (!isAllShown) {
-      // VIEW MORE
+      // Show next 3
       const nextReviews = Array.from(reviewItems).slice(
         visibleReviews,
         visibleReviews + itemsPerLoad,
@@ -249,12 +253,12 @@ jQuery(document).ready(function ($) {
 
       visibleReviews += itemsPerLoad;
 
-      // All cards are shown
+      // All cards shown
       if (visibleReviews >= reviewItems.length) {
         viewMoreBtn.textContent = 'View Less';
       }
     } else {
-      // VIEW LESS
+      // Hide all except first 3
       reviewItems.forEach((item, index) => {
         if (index >= itemsPerLoad) {
           item.classList.add('d-none');
@@ -265,4 +269,37 @@ jQuery(document).ready(function ($) {
       viewMoreBtn.textContent = 'View More';
     }
   });
+
+  // =========================
+  // VIDEO MODAL
+  // =========================
+  const reviewVideoModal = document.getElementById('reviewVideoModal');
+  const reviewVideo = document.getElementById('reviewVideo');
+
+  document.querySelectorAll('.review__card').forEach((card) => {
+    card.addEventListener('click', function () {
+      const videoPath = this.getAttribute('data-video');
+
+      if (!videoPath) return;
+
+      reviewVideo.src = videoPath;
+      reviewVideo.load();
+
+      reviewVideo.play().catch((error) => {
+        console.log('Video play error:', error);
+      });
+    });
+  });
+
+  // =========================
+  // STOP VIDEO WHEN MODAL CLOSE
+  // =========================
+  if (reviewVideoModal) {
+    reviewVideoModal.addEventListener('hidden.bs.modal', function () {
+      reviewVideo.pause();
+      reviewVideo.currentTime = 0;
+      reviewVideo.removeAttribute('src');
+      reviewVideo.load();
+    });
+  }
 });
