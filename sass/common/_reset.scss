@@ -217,7 +217,7 @@ body {
 
 // model
 #reviewVideoModal .modal-dialog {
-  max-width: 255px;
+  max-width: 350px;
   width: auto;
   margin: auto;
 }
@@ -225,9 +225,11 @@ body {
   background: #000000c7;
   backdrop-filter: blur(5px);
 }
-
+.review__model.show {
+  display: flex !important;
+}
 #reviewVideoModal .modal-content {
-  height: 450px;
+  height: 600px;
   background: transparent;
   border: 0;
 }

@@ -454,6 +454,7 @@
         }
       }
       .review__play__btn {
+        cursor: pointer;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -465,10 +466,15 @@
         border-radius: 50%;
         background: rgba($white, 0.2);
         backdrop-filter: blur(5px);
+        @include transition;
+
         @include flexCenter;
         @include media-breakpoint-down(md) {
           width: 45px;
           height: 45px;
+        }
+        &:hover {
+          background: rgba($primary, 1);
         }
         &::before {
           content: '';
@@ -628,6 +634,7 @@
 .return-within {
   background: #f2f3f5;
   position: relative;
+  padding: 0;
   &__inner {
     margin: 0 auto;
     min-height: 100vh;
